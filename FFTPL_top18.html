@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <link rel="stylesheet" href="https://enengame.github.io/FFTPL/PNG/font.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "GFF Latin", "Noto Sans TC";
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            display: flex;
+        }
+        .column {
+            /* margin-right: 50px; */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .row {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .cell {
+            font-size: 30px;
+            color: #ffffff;
+            background-color: #535353;
+            padding: 5px;
+            text-align: center;
+        }
+        .cell-1 { 
+            padding:0px;
+            flex-basis:5px;
+            background-color: #ff0000;
+        }
+        .cell-2 { 
+            margin-right: 5px;
+            flex-basis: 5%; 
+            background-color: #181818;
+        }
+        .cell-3 { 
+            padding-left: 10px;
+            text-align: left;
+            flex-basis: 180px; 
+            background-color: #2c2c2c;
+        }
+        .cell-4 { 
+            flex-basis: 50px; 
+            background-color: #686868;
+        }
+        .cell-5 { 
+            flex-basis: 35px; 
+            background-color: #959595;
+        }
+    </style>
+    <title>FFTPL Regular season</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 定義試算表的ID和工作表名稱
+            const spreadsheetId = "18lja6A3OjGVBuGkVdnmH2oZEJKtYQU_SoxOnI2shovk";
+            const sheetName = "OBS即時成績";
+            const apiKey = "AIzaSyA8Hsr_UTm3eyHC43-ZadQp-6J8eJBIIlk";
+
+            function fetchData() {
+                $.ajax({
+                    url: `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`,
+                    type: 'GET',
+                    success: function(response) {
+                        // 處理成功回應
+                        const values = response.values;
+
+                        // 處理資料並顯示在網頁上
+                        if (values && values.length > 0) {
+                            // 填入資料
+                            $('#team1').text(values[1][1]);
+                            $('#team2').text(values[2][1]);
+                            $('#team3').text(values[3][1]);
+                            $('#team4').text(values[4][1]);
+                            $('#team5').text(values[5][1]);
+                            $('#team6').text(values[6][1]);
+                            $('#team7').text(values[7][1]);
+                            $('#team8').text(values[8][1]);
+                            $('#team9').text(values[9][1]);
+                            $('#team10').text(values[10][1]);
+                            $('#team11').text(values[11][1]);
+                            $('#team12').text(values[12][1]);
+                            $('#team13').text(values[13][1]);
+                            $('#team14').text(values[14][1]);
+                            $('#team15').text(values[15][1]);
+                            $('#team16').text(values[16][1]);
+                            $('#team17').text(values[17][1]);
+                            $('#team18').text(values[17][1]);
+
+                            $('#points01').text(values[1][2]);
+                            $('#points02').text(values[2][2]);
+                            $('#points03').text(values[3][2]);
+                            $('#points04').text(values[4][2]);
+                            $('#points05').text(values[5][2]);
+                            $('#points06').text(values[6][2]);
+                            $('#points07').text(values[7][2]);
+                            $('#points08').text(values[8][2]);
+                            $('#points09').text(values[9][2]);
+                            $('#points10').text(values[10][2]);
+                            $('#points11').text(values[11][2]);
+                            $('#points12').text(values[12][2]);
+                            $('#points13').text(values[13][2]);
+                            $('#points14').text(values[14][2]);
+                            $('#points15').text(values[15][2]);
+                            $('#points16').text(values[16][2]);
+                            $('#points17').text(values[17][2]);
+                            $('#points18').text(values[18][2]);
+                        }
+                    },
+                    error: function(error) {
+                        // 處理錯誤
+                        console.log(error);
+                    }
+                });
+            }
+
+            // 首次加載資料
+            fetchData();
+
+            // 設定定時器每60秒更新一次資料
+            setInterval(fetchData, 15000);
+        });
+    </script>
+</head>
+<body>
+    <div class="column">
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">1</div>
+            <div class="cell cell-3" id="team1"></div>
+            <div class="cell cell-4" id="points01"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">2</div>
+            <div class="cell cell-3" id="team2"></div>
+            <div class="cell cell-4" id="points02"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">3</div>
+            <div class="cell cell-3" id="team3"></div>
+            <div class="cell cell-4" id="points03"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">4</div>
+            <div class="cell cell-3" id="team4"></div>
+            <div class="cell cell-4" id="points04"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">5</div>
+            <div class="cell cell-3" id="team5"></div>
+            <div class="cell cell-4" id="points05"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">6</div>
+            <div class="cell cell-3" id="team6"></div>
+            <div class="cell cell-4" id="points06"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">7</div>
+            <div class="cell cell-3" id="team7"></div>
+            <div class="cell cell-4" id="points07"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">8</div>
+            <div class="cell cell-3" id="team8"></div>
+            <div class="cell cell-4" id="points08"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2">9</div>
+            <div class="cell cell-3" id="team9"></div>
+            <div class="cell cell-4" id="points09"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 3px;">10</div>
+            <div class="cell cell-3" id="team10"></div>
+            <div class="cell cell-4" id="points10"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 6px;">11</div>
+            <div class="cell cell-3" id="team11"></div>
+            <div class="cell cell-4" id="points11"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 5px;">12</div>
+            <div class="cell cell-3" id="team12"></div>
+            <div class="cell cell-4" id="points12"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 5px;">13</div>
+            <div class="cell cell-3" id="team13"></div>
+            <div class="cell cell-4" id="points13"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 5px;">14</div>
+            <div class="cell cell-3" id="team14"></div>
+            <div class="cell cell-4" id="points14"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 5px;">15</div>
+            <div class="cell cell-3" id="team15"></div>
+            <div class="cell cell-4" id="points15"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 5px;">16</div>
+            <div class="cell cell-3" id="team16"></div>
+            <div class="cell cell-4" id="points16"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 5px;">17</div>
+            <div class="cell cell-3" id="team17"></div>
+            <div class="cell cell-4" id="points17"></div>
+        </div>
+        <div class="row">
+            <div class="cell cell-1"></div>
+            <div class="cell cell-2" style="padding: 5px;">18</div>
+            <div class="cell cell-3" id="team18"></div>
+            <div class="cell cell-4" id="points18"></div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
